@@ -1,0 +1,64 @@
+GET http://localhost:3000/api/cursos
+
+###
+GET http://localhost:3000/api/cursos/programacion
+
+###
+GET http://localhost:3000/api/cursos/matematicas
+
+###
+GET http://localhost:3000/api/cursos/programacion/python
+
+###
+GET http://localhost:3000/api/cursos/matematicas/algebra
+
+###
+// usando parametros url lenguaje y nivel
+// http://localhost:3000/api/cursos/programacion/:lenguaje/:nivel
+GET http://localhost:3000/api/cursos/programacion/python/basico
+
+###
+// usando parametros query
+GET http://localhost:3000/api/cursos/programacion/python?ordenar=vistas
+
+
+###
+// No usar comillas simples en el jSON => no funcionan
+POST http://localhost:3000/api/cursos/programacion HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 4,
+    "titulo": "Aprende Node.js",
+    "lenguaje": "javascripts",
+    "vistas": 45676,
+    "nivel": "basico"
+}
+
+###
+// No usar comillas simples en el jSON => no funcionan
+PUT http://localhost:3000/api/cursos/programacion/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "titulo": "Aprende Python Actualizado y aprobado",
+    "lenguaje": "python",
+    "vistas": 15000,
+    "nivel": "basico"
+}
+
+###
+// No usar comillas simples en el jSON => no funcionan
+PATCH http://localhost:3000/api/cursos/programacion/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "vistas": 15333
+}
+
+
+###
+// No usar comillas simples en el jSON => no funcionan
+DELETE http://localhost:3000/api/cursos/programacion/4 HTTP/1.1
+Content-Type: application/json
