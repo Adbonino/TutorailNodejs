@@ -1,5 +1,6 @@
 const express = require('express');
 const   {infoCursos} = require('./datos/cursos.js');
+const swagger = require('./swagger.js')
 
 // creamos la app de express
 const app = express();
@@ -26,6 +27,8 @@ app.get('/api/cursos',(req,res) => {
 
 // si esta definido el valor del puero en el ambien lo tomo y sino usa el 3000
 const PUERTO = process.env.PORT || 3000;
+
+swagger(app);
 
 app.listen(PUERTO, () => {
   console.log('el servidor esta escuchando...')
